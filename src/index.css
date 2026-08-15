@@ -14,10 +14,53 @@ body,
 	--color-brand-primary: #4b286d;
 	--color-brand-secondary: #393e46;
 	--color-brand-thirly: #eaecf0;
-	--color-gray-bg: #eeeeee;
+	--color-brand-fourthly: #9ca3af;
+	--color-primary-bg: #111625;
 	--color-brand-bg: #e4e2df;
 }
 
 .highlighted-btn {
 	@apply w-fit shrink-0 whitespace-nowrap rounded-2xl border border-brand-thirly bg-sky-500 text-brand-thirly px-4 py-2  hover:bg-blue-600 hover:text-brand-thirly cursor-pointer;
+}
+
+/* --- ESTILOS GENERALIZADOS PARA LA TABLA --- */
+.custom-table {
+	@apply w-full text-left text-sm text-brand-secondary overflow-x-auto rounded-xl border border-brand-thirly shadow-sm;
+}
+
+/* Estilos aplicados automáticamente a los hijos usando selectores de CSS */
+.custom-table thead {
+	@apply bg-brand-thirly text-xs uppercase tracking-wider text-brand-secondary font-semibold;
+}
+
+.custom-table tbody {
+	@apply divide-y divide-brand-thirly bg-white;
+}
+
+.custom-table tr {
+	@apply transition-colors hover:bg-gray-50;
+}
+
+.custom-table th {
+	@apply px-6 py-3;
+}
+
+.custom-table td {
+	@apply px-6 py-4 whitespace-nowrap;
+}
+
+/* --- ESTILOS GENERALIZADOS PARA EL FORMULARIO --- */
+.custom-form {
+	@apply flex flex-col gap-4 p-6 bg-white rounded-xl border border-brand-thirly shadow-sm max-w-md;
+}
+
+.custom-form label {
+	@apply flex flex-col gap-1.5 text-sm font-medium text-brand-secondary;
+}
+
+/* Estilo unificado para inputs, selects y textareas dentro del form */
+.custom-form input,
+.custom-form select,
+.custom-form textarea {
+	@apply px-3.5 py-2 rounded-lg border border-brand-fourthly text-brand-secondary bg-white outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition-all text-sm;
 }
