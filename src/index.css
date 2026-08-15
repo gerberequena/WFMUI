@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+body {
+	margin: 0;
+}
+
+html,
+body,
+#root {
+	height: 100%;
+}
+
+@theme {
+	--color-brand-primary: #4b286d;
+	--color-brand-secondary: #393e46;
+	--color-brand-thirly: #eaecf0;
+	--color-gray-bg: #eeeeee;
+	--color-brand-bg: #e4e2df;
+}
+
+.highlighted-btn {
+	@apply w-fit shrink-0 whitespace-nowrap rounded-2xl border border-brand-thirly bg-sky-500 text-brand-thirly px-4 py-2  hover:bg-blue-600 hover:text-brand-thirly cursor-pointer;
+}
