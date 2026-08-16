@@ -5,6 +5,7 @@ import Layout from "./layout/Layout";
 import Home from "./pages/Home";
 import Settings from "./pages/Settings";
 import Country from "./features/country/Country";
+import { Toaster } from "react-hot-toast";
 
 export default function App() {
 	const queryClient = new QueryClient({
@@ -28,6 +29,24 @@ export default function App() {
 					</Route>
 				</Routes>
 			</BrowserRouter>
+			<Toaster
+				position="top-center"
+				gutter={12}
+				containerStyle={{ margin: "8px" }}
+				toastOptions={{
+					success: {
+						duration: 3000,
+					},
+					error: {
+						duration: 5000,
+					},
+					style: {
+						fontSize: "16px",
+						maxWidth: "500px",
+						padding: "16px 24px",
+					},
+				}}
+			/>
 		</QueryClientProvider>
 	);
 }

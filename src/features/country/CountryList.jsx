@@ -1,5 +1,6 @@
 import React from "react";
 import { useGetCountryList } from "./useGetCountryList";
+import { Toaster } from "react-hot-toast";
 
 export default function CountryList() {
 	const { countryData, isPending } = useGetCountryList();
@@ -10,28 +11,28 @@ export default function CountryList() {
 		<table className="custom-table">
 			<thead>
 				<tr>
-					<th>id</th>
+					<th>Index</th>
 					<th>Name</th>
 					<th>SKU</th>
-					<th>Sites</th>
+					<th>Locations</th>
 				</tr>
 			</thead>
 			<tbody>
-				{countryData?.map((country) => (
-					<CountryDetails key={country.id} country={country} />
+				{countryData?.map((country, index) => (
+					<CountryDetails key={country.id} country={country} index={index} />
 				))}
 			</tbody>
 		</table>
 	);
 }
 
-function CountryDetails({ country }) {
+function CountryDetails({ country, index }) {
 	return (
 		<tr>
-			<td>{country.id}</td>
+			<td>{index + 1}</td>
 			<td>{country.country_name}</td>
 			<td>{country.country_sku}</td>
-			<td>{country?.site ? country?.site : "ADD SITE"}</td>
+			<td>{country?.location_count ? country?.location_count : "ADD SITE"}</td>
 		</tr>
 	);
 }

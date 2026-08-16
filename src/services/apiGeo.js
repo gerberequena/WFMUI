@@ -16,7 +16,29 @@ export async function createCountry({ country_name, country_sku }) {
 
 export async function getContryList() {
 	try {
-		const { data } = await axiosInstance.get("/countries/");
+		const { data } = await axiosInstance.get("/countries/location_counts/");
+		return data;
+	} catch (err) {
+		const message = getErrorMessage(err);
+		throw new Error(message);
+	}
+}
+
+export async function createLocation({
+	country,
+	location_name,
+	location_address,
+	location_state,
+	location_city,
+}) {
+	try {
+		const { data } = await axiosInstance.post("/locations/", {
+			country,
+			location_name,
+			location_address,
+			location_state,
+			location_city,
+		});
 		return data;
 	} catch (err) {
 		const message = getErrorMessage(err);
