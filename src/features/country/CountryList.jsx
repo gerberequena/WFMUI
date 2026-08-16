@@ -2,14 +2,16 @@ import React from "react";
 import { useGetCountryList } from "./useGetCountryList";
 import { Toaster } from "react-hot-toast";
 import useDebounce from "../../hooks/useDebounce";
-import { useOutletContext } from "react-router";
+import { useOutletContext, useSearchParams } from "react-router";
 
 export default function CountryList() {
-	const { countrySearch } = useOutletContext();
+	const [searchParams] = useSearchParams();
 
-	const debouncedSearch = useDebounce(countrySearch, 400);
+	const search = searchParams.get("search") ?? "";
 
-	const { countryData, isPending } = useGetCountryList();
+	const debouncedSearch = useDebounce(search, 400);
+
+	const { countryData, isPending } = useGetCountryList(debouncedSearch);
 
 	return (
 		<table className="custom-table">

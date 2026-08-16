@@ -4,14 +4,12 @@ import Header from "../layout/Header";
 import CountryOptions from "../ui/CountryOptions";
 
 export default function Settings() {
-	const [countrySearch, setCountrySearch] = useState("");
-
 	return (
 		<div className="flex flex-col gap-8">
 			<Header />
-			<CountryOptions search={countrySearch} onSearchChange={setCountrySearch} />
+			<CountryOptions />
 			<main>
-				<Outlet context={{ countrySearch }} />
+				<Outlet />
 			</main>
 		</div>
 	);
