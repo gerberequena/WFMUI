@@ -1,3 +1,4 @@
+import { Search } from "lucide-react";
 import axiosInstance from "./axiosInstance";
 import { getErrorMessage } from "./helpers/catchError";
 
@@ -14,9 +15,11 @@ export async function createCountry({ country_name, country_sku }) {
 	}
 }
 
-export async function getContryList() {
+export async function getCountryList(search = "") {
 	try {
-		const { data } = await axiosInstance.get("/countries/location_counts/");
+		const { data } = await axiosInstance.get("/countries/location_counts/", {
+			params: search.trim() ? { search: search.trim } : {},
+		});
 		return data;
 	} catch (err) {
 		const message = getErrorMessage(err);

@@ -6,9 +6,7 @@ import LocationForm from "../location/LocationForm";
 export default function Country() {
 	return (
 		<div>
-			{/* <CountryForm /> */}
 			<CountryList />
-			<LocationForm />
 		</div>
 	);
 }
