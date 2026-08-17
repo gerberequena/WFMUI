@@ -17,8 +17,10 @@ export async function createCountry({ country_name, country_sku }) {
 
 export async function getCountryList(search = "") {
 	try {
+		//8. We normalize the param key word to remove space
+		const normalizedSearch = search.trim();
 		const { data } = await axiosInstance.get("/countries/location_counts/", {
-			params: search.trim() ? { search: search.trim } : {},
+			params: normalizedSearch ? { search: normalizedSearch } : {},
 		});
 		return data;
 	} catch (err) {
@@ -41,6 +43,26 @@ export async function createLocation({
 			location_address,
 			location_state,
 			location_city,
+		});
+		return data;
+	} catch (err) {
+		const message = getErrorMessage(err);
+		throw new Error(message);
+	}
+}
+
+export async function getLocationsByCountry(countryId) {
+	const normalizedCountryId = Number(countryId);
+
+	if (!Number.isInteger(normalizedCountryId) || normalizedCountryId <= 0) {
+		throw new Error("A valid country ID is required");
+	}
+
+	try {
+		const { data } = await axiosInstance.get("/locations/", {
+			params: {
+				country: normalizedCountryId,
+			},
 		});
 		return data;
 	} catch (err) {

@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import useCreateLocation from "./useCreateLocation";
+import { useParams } from "react-router";
 
 export default function CountryForm() {
-	const [countryID, setCountryID] = useState(3);
+	const { countryID } = useParams();
 	const [locationName, setLocationName] = useState("");
 	const [locationAddress, setLocationAddress] = useState("");
 	const [locationState, setLocationState] = useState("");
@@ -33,8 +34,7 @@ export default function CountryForm() {
 			},
 			{
 				onSettled: () => {
-					(setCountryID(""),
-						setLocationName(""),
+					(setLocationName(""),
 						setLocationAddress(""),
 						setLocationState(""),
 						setLocationCity(""));
@@ -47,12 +47,7 @@ export default function CountryForm() {
 		<form onSubmit={handleSubmit} className="custom-form">
 			<div>
 				<label>Country ID</label>
-				<input
-					disabled
-					value={countryID}
-					type=""
-					onChange={(e) => setCountryID(e.target.value)}
-				/>
+				<input disabled value={countryID} type="" />
 			</div>
 			<div>
 				<label>Location Name</label>

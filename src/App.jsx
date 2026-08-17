@@ -6,6 +6,9 @@ import Home from "./pages/Home";
 import Settings from "./pages/Settings";
 import Country from "./features/country/Country";
 import { Toaster } from "react-hot-toast";
+import CountryForm from "./features/country/CountryForm";
+import LocationForm from "./features/location/LocationForm";
+import LocationPerCountryTable from "./features/location/LocationPerCountryTable";
 
 export default function App() {
 	const queryClient = new QueryClient({
@@ -25,6 +28,12 @@ export default function App() {
 						<Route path="/home" element={<Home />} />
 						<Route path="/settings" element={<Settings />}>
 							<Route path="country" element={<Country />} />
+							<Route path="country-form" element={<CountryForm />} />
+							<Route path="location-form/:countryID" element={<LocationForm />} />
+							<Route
+								path="locations-by-country/:countryID"
+								element={<LocationPerCountryTable />}
+							/>
 						</Route>
 					</Route>
 				</Routes>

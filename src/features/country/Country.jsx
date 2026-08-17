@@ -1,12 +1,10 @@
 import React from "react";
-import CountryForm from "./CountryForm";
-import CountryList from "./CountryList";
-import LocationForm from "../location/LocationForm";
+import CountryTable from "./CountryTable";
 
 export default function Country() {
 	return (
 		<div>
-			<CountryList />
+			<CountryTable />
 		</div>
 	);
 }

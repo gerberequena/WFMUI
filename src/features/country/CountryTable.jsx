@@ -2,15 +2,19 @@ import React from "react";
 import { useGetCountryList } from "./useGetCountryList";
 import { Toaster } from "react-hot-toast";
 import useDebounce from "../../hooks/useDebounce";
-import { useOutletContext, useSearchParams } from "react-router";
+import { Link, useOutletContext, useSearchParams } from "react-router";
+import BtnAction from "../../ui/BtnAction";
+import { MapPlus } from "lucide-react";
 
-export default function CountryList() {
+export default function CountryTable() {
 	const [searchParams] = useSearchParams();
 
+	//5 We then look for the params as well on the search list
 	const search = searchParams.get("search") ?? "";
 
 	const debouncedSearch = useDebounce(search, 400);
 
+	//6. We then  send the search key word
 	const { countryData, isPending } = useGetCountryList(debouncedSearch);
 
 	return (
@@ -38,7 +42,19 @@ function CountryDetails({ country, index }) {
 			<td>{index + 1}</td>
 			<td>{country.country_name}</td>
 			<td>{country.country_sku}</td>
-			<td>{country?.location_count ? country?.location_count : "ADD SITE"}</td>
+			<td>
+				{country?.location_count ? (
+					<Link to={`/settings/locations-by-country/${country.id}`}>
+						{country?.location_count}
+					</Link>
+				) : (
+					<BtnAction>
+						<Link to={`/settings/location-form/${country.id}`}>
+							<MapPlus color="#66cc00" />
+						</Link>
+					</BtnAction>
+				)}
+			</td>
 		</tr>
 	);
 }
