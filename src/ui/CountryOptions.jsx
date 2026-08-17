@@ -33,7 +33,7 @@ export default function CountryOptions() {
 			{/* we send the states to be able to modify them */}
 			<SearchBar value={search} onChange={handleSearchChange} />
 			<MainBtn>
-				<Link to="country-form" className="flex gap-1.5">
+				<Link to="/settings/country-form" className="flex gap-1.5">
 					<Plus size={18} /> <span>Country</span>
 				</Link>
 			</MainBtn>

@@ -9,6 +9,7 @@ import { Toaster } from "react-hot-toast";
 import CountryForm from "./features/country/CountryForm";
 import LocationForm from "./features/location/LocationForm";
 import LocationPerCountryTable from "./features/location/LocationPerCountryTable";
+import ShiftManagement from "./features/shift/ShiftManagement";
 
 export default function App() {
 	const queryClient = new QueryClient({
@@ -34,6 +35,7 @@ export default function App() {
 								path="locations-by-country/:countryID"
 								element={<LocationPerCountryTable />}
 							/>
+							<Route path="shift-management" element={<ShiftManagement />} />
 						</Route>
 					</Route>
 				</Routes>

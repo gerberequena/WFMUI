@@ -42,7 +42,7 @@ function CountryDetails({ country, index }) {
 			<td>{index + 1}</td>
 			<td>{country.country_name}</td>
 			<td>{country.country_sku}</td>
-			<td>
+			<td className="text-blue-500">
 				{country?.location_count ? (
 					<Link to={`/settings/locations-by-country/${country.id}`}>
 						{country?.location_count}

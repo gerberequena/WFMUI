@@ -1,4 +1,3 @@
-import { Search } from "lucide-react";
 import axiosInstance from "./axiosInstance";
 import { getErrorMessage } from "./helpers/catchError";
 
