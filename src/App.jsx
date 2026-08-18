@@ -10,6 +10,7 @@ import CountryForm from "./features/country/CountryForm";
 import LocationForm from "./features/location/LocationForm";
 import LocationPerCountryTable from "./features/location/LocationPerCountryTable";
 import ShiftManagement from "./features/shift/ShiftManagement";
+import JobCategory from "./features/job_category/JobCategory";
 
 export default function App() {
 	const queryClient = new QueryClient({
@@ -29,13 +30,13 @@ export default function App() {
 						<Route path="/home" element={<Home />} />
 						<Route path="/settings" element={<Settings />}>
 							<Route path="country" element={<Country />} />
-							<Route path="country-form" element={<CountryForm />} />
 							<Route path="location-form/:countryID" element={<LocationForm />} />
 							<Route
 								path="locations-by-country/:countryID"
 								element={<LocationPerCountryTable />}
 							/>
 							<Route path="shift-management" element={<ShiftManagement />} />
+							<Route path="job-category" element={<JobCategory />} />
 						</Route>
 					</Route>
 				</Routes>

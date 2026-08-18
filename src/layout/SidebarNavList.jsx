@@ -24,7 +24,7 @@ const navListElements = [
 			},
 			{
 				linkName: "Job Categories",
-				navPath: "/job_category",
+				navPath: "/settings/job-category",
 			},
 			{
 				linkName: "Shift Management",

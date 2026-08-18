@@ -34,3 +34,13 @@ export async function createShift({
 		throw new Error(message);
 	}
 }
+
+export async function getJobCategoryType() {
+	try {
+		const { data } = await axiosInstance.get("/job-category-type/");
+		return data;
+	} catch (err) {
+		const message = getErrorMessage(err);
+		throw new Error(message);
+	}
+}
