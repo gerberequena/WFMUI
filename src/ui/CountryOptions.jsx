@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchBar from "./SearchBar";
 import MainBtn from "./MainBtn";
 import { Plus } from "lucide-react";
 import { Link, useSearchParams } from "react-router";
+import Modal from "./Modal";
+import CountryForm from "../features/country/CountryForm";
 
 export default function CountryOptions() {
+	const [openModal, setOpenModal] = useState(false);
+
+	function handleOpenModal() {
+		setOpenModal((prev) => !prev);
+	}
+
 	//2. Definimos searchParams y setSearchParams con su hook
 	const [searchParams, setSearchParams] = useSearchParams();
 
@@ -32,11 +40,12 @@ export default function CountryOptions() {
 		<div className="flex justify-between">
 			{/* we send the states to be able to modify them */}
 			<SearchBar value={search} onChange={handleSearchChange} />
-			<MainBtn>
-				<Link to="/settings/country-form" className="flex gap-1.5">
-					<Plus size={18} /> <span>Country</span>
-				</Link>
+			<MainBtn onClick={handleOpenModal}>
+				<Plus size={18} /> <span>Country</span>
 			</MainBtn>
+			<Modal onClose={handleOpenModal} open={openModal} title="Create Country">
+				<CountryForm />
+			</Modal>
 		</div>
 	);
 }

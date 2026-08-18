@@ -4,9 +4,11 @@ import ShiftForm from "./ShiftForm";
 import SearchBar from "../../ui/SearchBar";
 import MainBtn from "../../ui/MainBtn";
 import { Plus } from "lucide-react";
+import { Dialog, DialogContent, DialogTitle } from "@mui/material";
+import Modal from "../../ui/Modal";
 
 export default function ShiftManagement() {
-	const [showForm, setShowForm] = useState(true);
+	const [showForm, setShowForm] = useState(false);
 
 	function handleShowForm() {
 		setShowForm((prev) => !prev);
@@ -25,10 +27,10 @@ export default function ShiftManagement() {
 				</button>
 			</div>
 			<div className="flex w-full justify-between">
-				<div>
-					<ShiftTable />
-				</div>
-				{!showForm && <ShiftForm />}
+				<ShiftTable />
+				<Modal onClose={handleShowForm} open={showForm} title="Create Shift Form">
+					<ShiftForm />
+				</Modal>
 			</div>
 		</div>
 	);
