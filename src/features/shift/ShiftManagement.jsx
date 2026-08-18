@@ -6,7 +6,7 @@ import MainBtn from "../../ui/MainBtn";
 import { Plus } from "lucide-react";
 
 export default function ShiftManagement() {
-	const [showForm, setShowForm] = useState(false);
+	const [showForm, setShowForm] = useState(true);
 
 	function handleShowForm() {
 		setShowForm((prev) => !prev);
