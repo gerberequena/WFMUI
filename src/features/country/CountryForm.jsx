@@ -25,29 +25,28 @@ export default function CountryForm() {
 	}
 
 	return (
-		<form onSubmit={handleSubmit} className="custom-form">
-			<div>
-				<label>Country Name</label>
-				<input
-					disabled={isCreating}
-					value={countryName}
-					type=""
-					placeholder="Example: United States"
-					onChange={(e) => setCountryName(e.target.value)}
-				/>
-			</div>
-			<div>
-				<label>Country SKU</label>
-				<input
-					disabled={isCreating}
-					value={countrySKU}
-					type=""
-					placeholder="Example: US"
-					onChange={(e) => setCountrySKU(e.target.value)}
-				/>
-			</div>
+		<form onSubmit={handleSubmit} className="custom-form ">
+			<label>Country Name</label>
+			<input
+				disabled={isCreating}
+				value={countryName}
+				type=""
+				placeholder="Example: United States"
+				onChange={(e) => setCountryName(e.target.value)}
+			/>
 
-			<button disabled={isCreating}>Create</button>
+			<label>Country SKU</label>
+			<input
+				disabled={isCreating}
+				value={countrySKU}
+				type=""
+				placeholder="Example: US"
+				onChange={(e) => setCountrySKU(e.target.value)}
+			/>
+
+			<button className="highlighted-btn self-center" disabled={isCreating}>
+				Create
+			</button>
 		</form>
 	);
 }

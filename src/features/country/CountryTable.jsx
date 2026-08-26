@@ -3,7 +3,7 @@ import { useGetCountryList } from "./useGetCountryList";
 import { Toaster } from "react-hot-toast";
 import useDebounce from "../../hooks/useDebounce";
 import { Link, useOutletContext, useSearchParams } from "react-router";
-import BtnAction from "../../ui/BtnAction";
+import LinkBtn from "../../ui/LinkBtn";
 import { MapPlus } from "lucide-react";
 
 export default function CountryTable() {
@@ -25,6 +25,7 @@ export default function CountryTable() {
 					<th>Name</th>
 					<th>SKU</th>
 					<th>Locations</th>
+					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -42,18 +43,11 @@ function CountryDetails({ country, index }) {
 			<td>{index + 1}</td>
 			<td>{country.country_name}</td>
 			<td>{country.country_sku}</td>
-			<td className="text-blue-500">
-				{country?.location_count ? (
-					<Link to={`/settings/locations-by-country/${country.id}`}>
-						{country?.location_count}
-					</Link>
-				) : (
-					<BtnAction>
-						<Link to={`/settings/location-form/${country.id}`}>
-							<MapPlus color="#66cc00" />
-						</Link>
-					</BtnAction>
-				)}
+			<td className="text-blue-500">{country?.location_count}</td>
+			<td>
+				<LinkBtn pathTo={`/settings/location-form/${country.id}`}>
+					<MapPlus />
+				</LinkBtn>
 			</td>
 		</tr>
 	);

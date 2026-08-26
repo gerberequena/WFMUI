@@ -9,13 +9,7 @@ export default function Modal({
 	maxWidth = "sm",
 }) {
 	return (
-		<Dialog
-			open={open}
-			onClose={onClose}
-			fullWidth
-			maxWidth={maxWidth}
-			title="Create Shift Form"
-		>
+		<Dialog open={open} onClose={onClose} fullWidth maxWidth={maxWidth} title="">
 			{title && <DialogTitle>{title}</DialogTitle>}
 
 			<DialogContent sx={{ display: "flex", justifyContent: "center" }}>

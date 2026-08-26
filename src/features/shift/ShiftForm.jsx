@@ -70,7 +70,7 @@ export default function ShiftForm() {
 				/>
 			</div>
 
-			<button>ADD NEW</button>
+			<button className="highlighted-btn self-center">Add Shift</button>
 		</form>
 	);
 }
