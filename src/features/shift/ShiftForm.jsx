@@ -33,44 +33,39 @@ export default function ShiftForm() {
 
 	return (
 		<form className="custom-form" onSubmit={handleSubmit}>
-			<div>
-				<label>Shift Name</label>
-				<input
-					value={shiftName}
-					onChange={(e) => setShiftName(e.target.value)}
-					disabled={isCreatingShift}
-					type="text"
-				/>
-			</div>
-			<div>
-				<label>Shift Length Hrs</label>
-				<input
-					value={shiftLength}
-					onChange={(e) => setShiftLength(e.target.value)}
-					disabled={isCreatingShift}
-					type="text"
-				/>
-			</div>
-			<div>
-				<label>Paid Hrs</label>
-				<input
-					value={paidHrs}
-					onChange={(e) => setPaidHrs(e.target.value)}
-					disabled={isCreatingShift}
-					type="text"
-				/>
-			</div>
-			<div>
-				<label>Productive Hrs</label>
-				<input
-					value={productiveHrs}
-					onChange={(e) => setProductiveHrs(e.target.value)}
-					disabled={isCreatingShift}
-					type="text"
-				/>
-			</div>
+			<label>Shift Name</label>
+			<input
+				value={shiftName}
+				onChange={(e) => setShiftName(e.target.value)}
+				disabled={isCreatingShift}
+				type="text"
+			/>
 
-			<button className="highlighted-btn self-center">Add Shift</button>
+			<label>Shift Length Hrs</label>
+			<input
+				value={shiftLength}
+				onChange={(e) => setShiftLength(e.target.value)}
+				disabled={isCreatingShift}
+				type="text"
+			/>
+
+			<label>Paid Hrs</label>
+			<input
+				value={paidHrs}
+				onChange={(e) => setPaidHrs(e.target.value)}
+				disabled={isCreatingShift}
+				type="text"
+			/>
+
+			<label>Productive Hrs</label>
+			<input
+				value={productiveHrs}
+				onChange={(e) => setProductiveHrs(e.target.value)}
+				disabled={isCreatingShift}
+				type="text"
+			/>
+
+			<button className="highlighted-btn w-full self-center">Add Shift</button>
 		</form>
 	);
 }

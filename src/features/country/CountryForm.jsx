@@ -44,7 +44,7 @@ export default function CountryForm() {
 				onChange={(e) => setCountrySKU(e.target.value)}
 			/>
 
-			<button className="highlighted-btn self-center" disabled={isCreating}>
+			<button className="highlighted-btn  w-full" disabled={isCreating}>
 				Create
 			</button>
 		</form>

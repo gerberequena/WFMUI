@@ -45,52 +45,48 @@ export default function CountryForm() {
 
 	return (
 		<form onSubmit={handleSubmit} className="custom-form">
-			<div>
-				<label>Country ID</label>
-				<input disabled value={countryID} type="" />
-			</div>
-			<div>
-				<label>Location Name</label>
-				<input
-					disabled={isCreatingLocation}
-					value={locationName}
-					type=""
-					placeholder="Example: World Financial Center"
-					onChange={(e) => setLocationName(e.target.value)}
-				/>
-			</div>
-			<div>
-				<label>Location Address</label>
-				<input
-					disabled={isCreatingLocation}
-					value={locationAddress}
-					type=""
-					placeholder="Example: Diagonal 6 Z10"
-					onChange={(e) => setLocationAddress(e.target.value)}
-				/>
-			</div>
-			<div>
-				<label>Location State</label>
-				<input
-					disabled={isCreatingLocation}
-					value={locationState}
-					type=""
-					placeholder="Example: Guatemala"
-					onChange={(e) => setLocationState(e.target.value)}
-				/>
-			</div>
-			<div>
-				<label>Location City</label>
-				<input
-					disabled={isCreatingLocation}
-					value={locationCity}
-					type=""
-					placeholder="Example: Guatemala"
-					onChange={(e) => setLocationCity(e.target.value)}
-				/>
-			</div>
+			<label>Country ID</label>
+			<input disabled value={countryID} type="" />
 
-			<button disabled={isCreatingLocation}>Create</button>
+			<label>Location Name</label>
+			<input
+				disabled={isCreatingLocation}
+				value={locationName}
+				type=""
+				placeholder="Example: World Financial Center"
+				onChange={(e) => setLocationName(e.target.value)}
+			/>
+
+			<label>Location Address</label>
+			<input
+				disabled={isCreatingLocation}
+				value={locationAddress}
+				type=""
+				placeholder="Example: Diagonal 6 Z10"
+				onChange={(e) => setLocationAddress(e.target.value)}
+			/>
+
+			<label>Location State</label>
+			<input
+				disabled={isCreatingLocation}
+				value={locationState}
+				type=""
+				placeholder="Example: Guatemala"
+				onChange={(e) => setLocationState(e.target.value)}
+			/>
+
+			<label>Location City</label>
+			<input
+				disabled={isCreatingLocation}
+				value={locationCity}
+				type=""
+				placeholder="Example: Guatemala"
+				onChange={(e) => setLocationCity(e.target.value)}
+			/>
+
+			<button className="highlighted-btn" disabled={isCreatingLocation}>
+				Create
+			</button>
 		</form>
 	);
 }

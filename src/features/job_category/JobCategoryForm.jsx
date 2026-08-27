@@ -67,7 +67,7 @@ export default function JobCategoryForm() {
 				type="number"
 			/>
 
-			<button>ADD JOB</button>
+			<button className="highlighted-btn  w-full ">Create</button>
 		</form>
 	);
 }

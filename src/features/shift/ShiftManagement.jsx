@@ -28,7 +28,7 @@ export default function ShiftManagement() {
 			</div>
 			<div className="flex w-full justify-between">
 				<ShiftTable />
-				<Modal onClose={handleShowForm} open={showForm} title="Create Shift Form">
+				<Modal onClose={handleShowForm} open={showForm} title="Create Shift">
 					<ShiftForm />
 				</Modal>
 			</div>

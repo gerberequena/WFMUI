@@ -20,7 +20,7 @@ body,
 }
 
 .highlighted-btn {
-	@apply w-fit shrink-0 whitespace-nowrap rounded-2xl border border-brand-thirly bg-blue-600 text-brand-thirly px-4 py-2  hover:bg-blue-700 hover:text-brand-thirly cursor-pointer;
+	@apply shrink-0 whitespace-nowrap rounded-2xl border border-brand-thirly bg-blue-600 text-brand-thirly px-4 py-2  hover:bg-blue-700 hover:text-brand-thirly cursor-pointer;
 }
 
 /* --- ESTILOS GENERALIZADOS PARA LA TABLA --- */
@@ -51,16 +51,19 @@ body,
 
 /* --- ESTILOS GENERALIZADOS PARA EL FORMULARIO --- */
 .custom-form {
-	@apply flex flex-col gap-4 p-6 bg-white rounded-xl border border-brand-thirly shadow-sm max-w-md;
+	@apply flex flex-col gap-4 p-6 bg-white rounded-xl border border-brand-thirly shadow-sm w-full;
 }
 
 .custom-form label {
 	@apply flex flex-col gap-1.5 text-sm font-medium text-brand-secondary;
 }
 
-/* Estilo unificado para inputs, selects y textareas dentro del form */
 .custom-form input,
 .custom-form select,
 .custom-form textarea {
-	@apply px-3.5 py-2 rounded-lg border border-brand-fourthly text-brand-secondary bg-white outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition-all text-sm;
+	@apply w-full px-3.5 py-2 rounded-lg border border-brand-fourthly
+  text-brand-secondary bg-white outline-none
+  focus:border-brand-primary
+  focus:ring-2 focus:ring-brand-primary/20
+  transition-all text-sm;
 }
