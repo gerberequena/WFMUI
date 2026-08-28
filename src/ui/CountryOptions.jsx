@@ -10,7 +10,11 @@ export default function CountryOptions() {
 	const [openModal, setOpenModal] = useState(false);
 
 	function handleOpenModal() {
-		setOpenModal((prev) => !prev);
+		setOpenModal(true);
+	}
+
+	function handleCloseModal() {
+		setOpenModal(false);
 	}
 
 	//2. Definimos searchParams y setSearchParams con su hook
@@ -43,8 +47,8 @@ export default function CountryOptions() {
 			<MainBtn onClick={handleOpenModal}>
 				<Plus size={18} /> <span>Country</span>
 			</MainBtn>
-			<Modal onClose={handleOpenModal} open={openModal} title="Create Country">
-				<CountryForm />
+			<Modal onClose={handleCloseModal} open={openModal} title="Create Country">
+				<CountryForm onCloseModal={handleCloseModal} />
 			</Modal>
 		</div>
 	);

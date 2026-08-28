@@ -1,5 +1,6 @@
 import React from "react";
 import { useGetJobCategory } from "./useGetJobCategory";
+import LinkBtn from "../../ui/LinkBtn";
 
 export default function JobCategoryTable() {
 	const { isPending, jobCategoryData } = useGetJobCategory();
@@ -32,16 +33,24 @@ export default function JobCategoryTable() {
 }
 
 function JobCategoryRow({ jobCategory, index }) {
-	const { job_category_name, job_category_type, country, required_shift_days } =
-		jobCategory;
+	const {
+		id,
+		job_category_name,
+		country_name,
+		job_category_type_name,
+		required_shift_days,
+	} = jobCategory;
 
 	return (
 		<tr>
 			<td>{index + 1}</td>
 			<td>{job_category_name}</td>
-			<td>{country}</td>
-			<td>{job_category_type}</td>
+			<td>{country_name}</td>
+			<td>{job_category_type_name}</td>
 			<td>{required_shift_days}</td>
+			<td>
+				<LinkBtn pathTo={`/settings/job-category-shifts/${id}`}>Modified</LinkBtn>
+			</td>
 		</tr>
 	);
 }

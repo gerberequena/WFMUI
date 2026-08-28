@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { useGetJobCategoryType } from "./useGetJobCategoryType";
 import OptionSelect from "../../ui/OptionSelect";
 import { useGetCountryList } from "../country/useGetCountryList";
+import useCreateJobCategory from "./useCreateJobCategory";
 
-export default function JobCategoryForm() {
+export default function JobCategoryForm({ onClose }) {
 	const { jobCategoryTypeData, isPending: isPendingJobType } =
 		useGetJobCategoryType();
 	const { countryData, isPending: isPedningCountry } = useGetCountryList();
+	const { isCreatingJobCategory, createJobCategoryFN } = useCreateJobCategory();
 
 	const [jobCategoryName, setJobCategoryName] = useState("");
 	const [jobCategoryType, setJobCategoryType] = useState("");
@@ -20,22 +22,38 @@ export default function JobCategoryForm() {
 
 		console.log({
 			job_category_name: jobCategoryName,
-			country: country,
-			job_category_type: jobCategoryType,
-			required_shift_days: requiredDays,
+			country: Number(country),
+			job_category_type: Number(jobCategoryType),
+			required_shift_days: Number(requiredDays),
 		});
+
+		createJobCategoryFN(
+			{
+				job_category_name: jobCategoryName,
+				country: Number(country),
+				job_category_type: Number(jobCategoryType),
+				required_shift_days: Number(requiredDays),
+			},
+			{
+				onSuccess: () => {
+					onClose();
+				},
+			},
+		);
 	}
 
 	return (
 		<form className="custom-form" onSubmit={handleSubmit}>
 			<label>Job Category Name</label>
 			<input
+				disabled={isCreatingJobCategory}
 				value={jobCategoryName}
 				onChange={(e) => setJobCategoryName(e.target.value)}
 				type="text"
 			/>
 			<label>Job Type</label>
 			<select
+				disabled={isCreatingJobCategory}
 				value={jobCategoryType}
 				onChange={(e) => setJobCategoryType(e.target.value)}
 			>
@@ -49,7 +67,11 @@ export default function JobCategoryForm() {
 				))}
 			</select>
 			<label>Country</label>
-			<select value={country} onChange={(e) => setCountry(e.target.value)}>
+			<select
+				disabled={isCreatingJobCategory}
+				value={country}
+				onChange={(e) => setCountry(e.target.value)}
+			>
 				<option>Select Country</option>
 				{countryData?.map((country) => (
 					<OptionSelect
@@ -62,12 +84,18 @@ export default function JobCategoryForm() {
 
 			<label>Required Shift Days</label>
 			<input
+				disabled={isCreatingJobCategory}
 				value={requiredDays}
 				onChange={(e) => setRequiredDays(e.target.value)}
 				type="number"
 			/>
 
-			<button className="highlighted-btn  w-full ">Create</button>
+			<button
+				disabled={isCreatingJobCategory}
+				className="highlighted-btn  w-full "
+			>
+				Create
+			</button>
 		</form>
 	);
 }

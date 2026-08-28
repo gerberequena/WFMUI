@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useCreateCountry from "./useCreateCountry";
 
-export default function CountryForm() {
+export default function CountryForm({ onCloseModal }) {
 	const [countryName, setCountryName] = useState("");
 	const [countrySKU, setCountrySKU] = useState("");
 	const { createCountryFN, isCreating, error } = useCreateCountry();
@@ -17,6 +17,9 @@ export default function CountryForm() {
 				country_sku: countrySKU,
 			},
 			{
+				onSuccess: () => {
+					onCloseModal();
+				},
 				onSettled: () => {
 					(setCountryName(""), setCountrySKU(""));
 				},

@@ -28,7 +28,7 @@ export default function JobCategory() {
 			</div>
 
 			<Modal open={showForm} onClose={handleCloseForm} title="Create Job Category">
-				<JobCategoryForm />
+				<JobCategoryForm onClose={handleCloseForm} />
 			</Modal>
 
 			<JobCategoryTable />

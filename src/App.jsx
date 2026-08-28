@@ -11,6 +11,7 @@ import LocationForm from "./features/location/LocationForm";
 import LocationPerCountryTable from "./features/location/LocationPerCountryTable";
 import ShiftManagement from "./features/shift/ShiftManagement";
 import JobCategory from "./features/job_category/JobCategory";
+import JobCategoryShifts from "./features/job_category/JobCategoryShifts";
 
 export default function App() {
 	const queryClient = new QueryClient({
@@ -37,6 +38,10 @@ export default function App() {
 							/>
 							<Route path="shift-management" element={<ShiftManagement />} />
 							<Route path="job-category" element={<JobCategory />} />
+							<Route
+								path="job-category-shifts/:jobCategoryID"
+								element={<JobCategoryShifts />}
+							/>
 						</Route>
 					</Route>
 				</Routes>
