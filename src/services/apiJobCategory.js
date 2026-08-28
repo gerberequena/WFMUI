@@ -44,3 +44,21 @@ export async function getJobCategoryType() {
 		throw new Error(message);
 	}
 }
+
+export async function createJobCategory({
+	job_category_name,
+	job_category_type,
+	country,
+	required_shift_days,
+}) {}
+
+export async function getJobCategory() {
+	try {
+		const { data } = await axiosInstance.get("/job-category/");
+		console.log(data);
+		return data;
+	} catch (err) {
+		const message = getErrorMessage(err);
+		throw new Error(message);
+	}
+}

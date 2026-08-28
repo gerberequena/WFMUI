@@ -43,7 +43,15 @@ function CountryDetails({ country, index }) {
 			<td>{index + 1}</td>
 			<td>{country.country_name}</td>
 			<td>{country.country_sku}</td>
-			<td className="text-blue-500">{country?.location_count}</td>
+			<td className="text-blue-500">
+				{country?.location_count ? (
+					<LinkBtn pathTo={`/settings/locations-by-country/${country.id}`}>
+						{country?.location_count}
+					</LinkBtn>
+				) : (
+					country?.location_count
+				)}
+			</td>
 			<td>
 				<LinkBtn pathTo={`/settings/location-form/${country.id}`}>
 					<MapPlus />
