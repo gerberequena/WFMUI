@@ -66,11 +66,22 @@ export async function createJobCategory({
 	}
 }
 
-export async function getJobCategory(id = null) {
+export async function getJobCategory(id = null, filters = {}) {
 	try {
 		const url = id ? `/job-category/${id}/` : "/job-category/";
 
-		const { data } = await axiosInstance.get(url);
+		const params = id
+			? {}
+			: {
+					job_category_name: filters.JobCategoryName || undefined,
+					country: filters.country || undefined,
+					job_category_type: filters.jobCategoryType || undefined,
+					required_shift_days: filters.requiredShiftDays || undefined,
+					min_shift_days: filters.minShiftDays || undefined,
+					max_shift_days: filters.maxShiftDays || undefined,
+				};
+
+		const { data } = await axiosInstance.get(url, { params });
 
 		return data;
 	} catch (err) {

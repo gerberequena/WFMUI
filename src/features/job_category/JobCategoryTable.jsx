@@ -2,8 +2,8 @@ import React from "react";
 import { useGetJobCategory } from "./useGetJobCategory";
 import LinkBtn from "../../ui/LinkBtn";
 
-export default function JobCategoryTable() {
-	const { isPending, jobCategoryData } = useGetJobCategory();
+export default function JobCategoryTable({ filters }) {
+	const { isPending, jobCategoryData } = useGetJobCategory(filters);
 
 	return (
 		<table className="custom-table">
