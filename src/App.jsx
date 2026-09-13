@@ -12,6 +12,7 @@ import LocationPerCountryTable from "./features/location/LocationPerCountryTable
 import ShiftManagement from "./features/shift/ShiftManagement";
 import JobCategory from "./features/job_category/JobCategory";
 import JobCategoryShifts from "./features/job_category/JobCategoryShifts";
+import CapacityOverview from "./features/capacity/CapacityOverview";
 
 export default function App() {
 	const queryClient = new QueryClient({
@@ -29,6 +30,7 @@ export default function App() {
 					<Route element={<Layout />}>
 						<Route index element={<Navigate replace to="/home" />} />
 						<Route path="/home" element={<Home />} />
+						<Route path="/capacity-overview" element={<CapacityOverview />} />
 						<Route path="/settings" element={<Settings />}>
 							<Route path="country" element={<Country />} />
 							<Route path="location-form/:countryID" element={<LocationForm />} />

@@ -6,7 +6,9 @@ export default function Header({ headerName, headerDescription }) {
 		<div className="flex justify-between items-center border-b-2 border-b-brand-thirly py-4">
 			{/* compoment for header title and description */}
 			<div>
-				<h2 className="text-xl font-bold text-gray-900">Organizational Settings</h2>
+				<h2 className="text-xl font-bold text-gray-900">
+					{headerName ? headerName : "Title"}{" "}
+				</h2>
 				<p className="text-sm text-gray-500">Live mode production settings</p>
 			</div>
 			{/* compoment for user, notificatin and mode and description */}

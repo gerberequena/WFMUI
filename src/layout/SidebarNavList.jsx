@@ -6,6 +6,15 @@ const navListElements = [
 		name: "Overview",
 		navlinks: [
 			{
+				linkName: "Capacity Overview",
+				navPath: "/capacity-overview",
+			},
+		],
+	},
+	{
+		name: "Capacity",
+		navlinks: [
+			{
 				linkName: "Requirements",
 				navPath: "/requirements",
 			},

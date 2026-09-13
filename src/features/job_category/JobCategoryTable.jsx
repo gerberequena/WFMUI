@@ -3,7 +3,7 @@ import { useGetJobCategory } from "./useGetJobCategory";
 import LinkBtn from "../../ui/LinkBtn";
 
 export default function JobCategoryTable({ filters }) {
-	const { isPending, jobCategoryData } = useGetJobCategory(filters);
+	const { isPending, jobCategoryData } = useGetJobCategory(null, filters);
 
 	return (
 		<table className="custom-table">
